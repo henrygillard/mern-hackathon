@@ -2,6 +2,16 @@ import "./OrderListItem.css";
 
 export default function OrderListItem({order, selected, changeSelected}) {
 
+    let orderDay = order.updatedAt.toString().split('');
+    let newDate = [];
+    for (let idx=0; orderDay.length > idx; ++idx){
+        console.log(orderDay[idx])
+        if (idx < 10){
+            newDate.push(orderDay[idx]);
+        }
+    }
+    
+
     if(selected === order.orderId) {
         return (
             <div style={{border:" 1px solid black"}}
@@ -11,7 +21,7 @@ export default function OrderListItem({order, selected, changeSelected}) {
                         Order Id: <span>{order.orderId}</span>
                     </div>
                     <div>
-                        {order.updatedAt}
+                        {newDate}
                     </div>
                 </div>
                 <div className="align-right">
