@@ -8,6 +8,13 @@ import * as ordersAPI from "../../utilities/orders-api";
 
 export default function OrderHistoryPage({ user, setUser }) {
   const [orders, setOrder] = useState([]); 
+  const [selected, setSelected] = useState("white");
+
+  function changeSelected(order) {
+    if (order !== selected) {
+    setSelected(order);
+    }
+  }
 
   useEffect(function() {
     async function getOrders() {
@@ -24,7 +31,7 @@ export default function OrderHistoryPage({ user, setUser }) {
         <Link to="/orders/new" className="button btn-sm">NEW ORDER</Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
-      <OrderList orders={orders}/>
+      <OrderList orders={orders} selected={selected} changeSelected={changeSelected}/>
       
 
 
