@@ -8,6 +8,7 @@ import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [orders, setOrder] = useState([]); 
 
   return (
     <main className="App">
@@ -15,10 +16,10 @@ export default function App() {
         <>
           <Switch>
             <Route path="/orders/new">
-              <NewOrderPage user={user} setUser={setUser} />
+              <NewOrderPage user={user} setUser={setUser} setOrder={setOrder} orders={orders}/>
             </Route>
             <Route path="/orders">
-              <OrderHistoryPage user={user} setUser={setUser} />
+              <OrderHistoryPage user={user} setUser={setUser} orders={orders}/>
             </Route>
             <Redirect to="/orders" />
           </Switch>

@@ -2,8 +2,11 @@ import { Link } from 'react-router-dom';
 import './OrderHistoryPage.css';
 import Logo from '../../components/Logo/Logo';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import { useState } from 'react';
+import OrderList from "../../components/OrderList/OrderList";
 
-export default function OrderHistoryPage({ user, setUser }) {
+export default function OrderHistoryPage({ user, setUser, orders }) {
+ 
   return (
     <main className="OrderHistoryPage">
       <aside>
@@ -11,6 +14,8 @@ export default function OrderHistoryPage({ user, setUser }) {
         <Link to="/orders/new" className="button btn-sm">NEW ORDER</Link>
         <UserLogOut user={user} setUser={setUser} />
       </aside>
+      <OrderList orders={orders}/>
+      
 
 
 
