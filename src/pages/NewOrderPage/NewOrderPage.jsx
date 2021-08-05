@@ -9,7 +9,7 @@ import CategoryList from '../../components/CategoryList/CategoryList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
-export default function NewOrderPage({ user, setUser, setOrder, orders }) {
+export default function NewOrderPage({ user, setUser}) {
   const [menuItems, setMenuItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
@@ -51,9 +51,7 @@ export default function NewOrderPage({ user, setUser, setOrder, orders }) {
   }
 
   async function handleCheckout() {
-    const newOrder = await ordersAPI.checkout();
     await ordersAPI.checkout();
-    setOrder([...orders, newOrder]);
     history.push('/orders');
   }
 
